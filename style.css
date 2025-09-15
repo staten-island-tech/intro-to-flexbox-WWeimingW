@@ -1,0 +1,19 @@
+body,
+html,
+*{
+    font-size: 10;
+    margin: ;
+
+}
+.card {
+    width: 300px;
+    height: 400px;
+    background color: ;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100vh;
+}
