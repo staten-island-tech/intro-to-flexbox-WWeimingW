@@ -3,20 +3,18 @@ html,
 *{
     font-size: 10;
     margin: ;
-    background-color: #7799BB;
+    background-color: #0f2324;
 }
 .price{
     text-align: center;
     font-size: 20px;
-    background-color: #000000;
     margin-top: 10px;
-    color: white;
+    color: #e1604f;
 }
 .title {
     text-align: center;
     font-size: 25px;
     color: white;
-    background-color: #000000;
     margin-top: 20px;
 }
 .card {
@@ -24,7 +22,7 @@ html,
     height: 500px;
     display: block;
     object-fit: cover;
-    background-color: #CCCCCC;
+    background-color: grey;
     margin: 10px;
     padding: 15px;
 }
@@ -36,4 +34,21 @@ html,
     width: 90vw;
     margin: 10px auto;
     background-color: #CCCCCC;
+}
+img {
+    width: 350px;
+    height: 350px;
+    display: block;
+    object-fit: cover;
+    text-align: center;
+    background-color: #ffffff;
+    margin: auto;
+}
+h1 {
+    text-align: center;
+    font-size: 50px;
+    color: white;
+    background-color: #000000;
+    margin-top: 20px;
+    padding: 10px;
 }
