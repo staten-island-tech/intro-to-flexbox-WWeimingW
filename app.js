@@ -2,112 +2,112 @@ const shoes = [
   {
     name: "Air Force 1",
     brand: "Nike",
-    img: "https://example.com/airforce1.jpg",
+    img: "images/AirForce1.avif",
     price: 120,
     alt: "White Nike Air Force 1 sneaker",
   },
   {
     name: "Air Max 90",
     brand: "Nike",
-    img: "https://example.com/airmax90.jpg",
+    img: "images/AirMax90.avif",
     alt: "White and black Nike Air Max 90 sneaker",
     price: 150,
   },
   {
     name: "Air Zoom Pegasus 37",
     brand: "Nike",
-    img: "https://example.com/pegasus37.jpg",
+    img: "images/AirZoomPegasus37.avif",
     price: 90,
     alt: "White Nike Air Zoom Pegasus 37 sneaker",
   },
   {
     name: "Adidas Ultraboost 21",
     brand: "Adidas",
-    img: "https://example.com/ultraboost21.jpg",
+    img: "images/Ultraboost21.avif",
     price: 210,
     alt: "Black Adidas Ultraboost 21 sneaker",
   },
   {
     name: "Adidas Stan Smith",
     brand: "Adidas",
-    img: "https://example.com/stan-smith.jpg",
+    img: "images/StanSmith.avif",
     price: 150,
     alt: "White Adidas Stan Smith sneaker",
   },
   {
     name: "Converse Chuck",
     brand: "Converse",
-    img: "https://example.com/converse-chuck.jpg",
+    img: "images/ConverseChuck.avif",
     alt: "White Converse Chuck Taylor All Star sneaker",
     price: 85,
   },
   {
     name: "Taylor All Star",
     brand: "Converse",
-    img: "https://example.com/taylor-all-star.jpg",
+    img: "images/TaylorAllStar.avif",
     price: 95,
     alt: "White Converse Taylor All Star sneaker",
   },
   {
     name: "New Balance 574",
     brand: "New Balance",
-    img: "https://example.com/new-balance-574.jpg",
+    img: "images/NewBalance574.avif",
     price: 80,
     alt: "Grey New Balance 574 sneaker",
   },
   {
     name: "New Balance 990v5",
     brand: "New Balance",
-    img: "https://example.com/new-balance-990v5.jpg",
+    img: "images/NewBalance990v5.avif",
     price: 175,
     alt: "Grey New Balance 990v5 sneaker",
   },
   {
     name: "Vans Old Skool",
     brand: "Vans",
-    img: "https://example.com/vans-old-skool.jpg",
+    img: "images/VansOldSkool.avif",
     price: 70,
     alt: "Black Vans Old Skool sneaker",
   },
   {
     name: "Puma Suede Classic",
     brand: "Puma",
-    img: "https://example.com/puma-suede-classic.jpg",
+    img: "images/PumaSuedeClassic.avif",
     price: 120,
     alt: "Black Puma Suede Classic sneaker",
   },
   {
     name: "Asics Gel-Kayano 27",
     brand: "Asics",
-    img: "https://example.com/asics-gel-kayano-27.jpg",
+    img: "images/AsicsGelKayano27.avif",
     price: 130,
     alt: "Black Asics Gel-Kayano 27 sneaker",
   },
   {
     name: "Adidas Samba OG",
     brand: "Adidas",
-    img: "https://example.com/samba-og.jpg",
+    img: "images/SambaOG.avif",
     price: 120,
     alt: "Black Adidas Samba OG sneaker",
   },
   {
     name: "Adidas Samba XLG 'Blue'",
     brand: "Adidas",
-    img: "https://example.com/xlgblue.jpg",
+    img: "images/SambaXLGBlue.avif",
     price: 120,
     alt: "Blue Adidas XLG sneaker",
   },
   {
     name: "Classic Watercolored Marbled Clog",
     brand: "Crocs",
-    img: "https://example.com/classicwatercoloredmarbledclog.jpg",
+    img: "images/ClassicWatercoloredMarbledClog.avif",
     price: 120,
     alt: "Classic Watercolored Marbled Crocs",
   },
   {
     name: "Birkenstock Boston Soft Footbed Suede",
     brand: "Birkenstock",
-    img: "https://example.com/birkenstockboston.jpg",
+    img: "images/BirkenstockBoston.avif",
     price: 120,
     alt: "Birkenstock Boston Soft Footbed Suede Berks",
   },
@@ -132,3 +132,19 @@ const shoes = [
     price: 120,
   },
 ];
+
+//create inject function
+function inject(item) {
+  item.forEach((shoes) => {
+    //query the html where we inject the card
+    const container = document.querySelector(".container");
+    container.insertAdjacentHTML(
+      "afterbegin",
+      `<h1>${shoes.name}</h1>,
+        <h1>${shoes.brand}</h1>,
+        <h1>${shoes.price}</h1>,
+        <img src="${shoes.img}" alt="${shoes.alt}"/>`
+    );
+  });
+}
+inject(shoes);
