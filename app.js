@@ -23,7 +23,7 @@ const shoes = [
   {
     name: "Adidas Ultraboost 21",
     brand: "Adidas",
-    img: "images/Ultraboost21.avif",
+    img: "images/Ultraboo.avif",
     price: 210,
     alt: "Black Adidas Ultraboost 21 sneaker",
   },
@@ -87,38 +87,40 @@ const shoes = [
     name: "Adidas Samba OG",
     brand: "Adidas",
     img: "images/SambaOG.avif",
-    price: 120,
+    price: 80,
     alt: "Black Adidas Samba OG sneaker",
   },
   {
     name: "Adidas Samba XLG 'Blue'",
     brand: "Adidas",
     img: "images/SambaXLGBlue.avif",
-    price: 120,
+    price: 110,
     alt: "Blue Adidas XLG sneaker",
   },
   {
     name: "Classic Watercolored Marbled Clog",
     brand: "Crocs",
     img: "images/ClassicWatercoloredMarbledClog.avif",
-    price: 120,
+    price: 100,
     alt: "Classic Watercolored Marbled Crocs",
   },
   {
     name: "Birkenstock Boston Soft Footbed Suede",
     brand: "Birkenstock",
     img: "images/BirkenstockBoston.avif",
-    price: 120,
+    price: 135,
     alt: "Birkenstock Boston Soft Footbed Suede Berks",
   },
   {
-    name: "Air Max 90",
-    brand: "Nike",
-    price: 120,
+    name: "Men's Cloudtilt",
+    brand: "On",
+    img: "images/OnCloudtilt.avif",
+    price: 90,
   },
   {
-    name: "Air Max 90",
+    name: "Nike Dunk Low Retro  ",
     brand: "Nike",
+    img: "images/Dunk.avif"
     price: 120,
   },
   {
@@ -135,16 +137,19 @@ const shoes = [
 
 //create inject function
 function inject(item) {
-  item.forEach((shoes) => {
+
     //query the html where we inject the card
     const container = document.querySelector(".container");
     container.insertAdjacentHTML(
       "afterbegin",
-      `<h1>${shoes.name}</h1>,
-        <h1>${shoes.brand}</h1>,
-        <h1>${shoes.price}</h1>,
-        <img src="${shoes.img}" alt="${shoes.alt}"/>`
+      `<div class="card">
+      <h2 class="title">${item.name}</h2>
+      <img src="${item.img}" alt="${item.alt}">
+      <h3 class="price">$${item.price}</h3>
+      <button class="button">Add to Cart</button>
+    </div>`
     );
+  };
+  shoes.forEach((element) => {
+    inject(element);
   });
-}
-inject(shoes);
