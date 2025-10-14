@@ -120,11 +120,11 @@ const shoes = [
   {
     name: "Nike Dunk Low Retro  ",
     brand: "Nike",
-    img: "images/Dunk.avif"
+    img: "images/Dunk.avif",
     price: 120,
   },
   {
-    name: "Air Max 90",
+    name: "",
     brand: "Nike",
     price: 120,
   },
@@ -137,19 +137,28 @@ const shoes = [
 
 //create inject function
 function inject(item) {
-
-    //query the html where we inject the card
-    const container = document.querySelector(".container");
-    container.insertAdjacentHTML(
-      "afterbegin",
-      `<div class="card">
+  //query the html where we inject the card
+  const container = document.querySelector(".container");
+  container.insertAdjacentHTML(
+    "afterbegin",
+    `<div class="card">
       <h2 class="title">${item.name}</h2>
       <img src="${item.img}" alt="${item.alt}">
-      <h3 class="price">$${item.price}</h3>
-      <button class="button">Add to Cart</button>
+      <p class="price">${item.price}</p>
+      <button class="button" id ="${item.name}">Add to Cart</button>
     </div>`
-    );
-  };
-  shoes.forEach((element) => {
-    inject(element);
-  });
+  );
+}
+shoes.forEach((element) => {
+  inject(element);
+});
+function getBtn() {
+  const buttons = document.querySelectorAll(".button");
+  const btnArr = Array.from(buttons);
+  btnArr.forEach((btn) =>
+    btn.addEventListener("click", function (event) {
+      console.log(event.target.getAttribute("data-id"));
+    })
+  );
+}
+getBtn();
