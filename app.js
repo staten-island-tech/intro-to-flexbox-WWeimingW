@@ -16,49 +16,49 @@ const shoes = [
   {
     name: "Air Zoom Pegasus 37",
     brand: "Nike",
-    img: "images/AirZoomPegasus37.avif",
+    img: "images/AirZoomPegasus.avif",
     price: 90,
     alt: "White Nike Air Zoom Pegasus 37 sneaker",
   },
   {
     name: "Adidas Ultraboost 21",
     brand: "Adidas",
-    img: "images/Ultraboo.avif",
+    img: "images/Ultraboost.avif",
     price: 210,
     alt: "Black Adidas Ultraboost 21 sneaker",
   },
   {
     name: "Adidas Stan Smith",
     brand: "Adidas",
-    img: "images/StanSmith.avif",
+    img: "images/StanSmith.jpg",
     price: 150,
     alt: "White Adidas Stan Smith sneaker",
   },
   {
     name: "Converse Chuck",
     brand: "Converse",
-    img: "images/ConverseChuck.avif",
+    img: "images/ConverseChuck.jpg",
     alt: "White Converse Chuck Taylor All Star sneaker",
     price: 85,
   },
   {
     name: "Taylor All Star",
     brand: "Converse",
-    img: "images/TaylorAllStar.avif",
+    img: "images/TaylorAllStar.jpg",
     price: 95,
     alt: "White Converse Taylor All Star sneaker",
   },
   {
     name: "New Balance 574",
     brand: "New Balance",
-    img: "images/NewBalance574.avif",
+    img: "images/NewBalance574.webp",
     price: 80,
     alt: "Grey New Balance 574 sneaker",
   },
   {
     name: "New Balance 990v5",
     brand: "New Balance",
-    img: "images/NewBalance990v5.avif",
+    img: "images/NewBalance990.webp",
     price: 175,
     alt: "Grey New Balance 990v5 sneaker",
   },
@@ -72,14 +72,14 @@ const shoes = [
   {
     name: "Puma Suede Classic",
     brand: "Puma",
-    img: "images/PumaSuedeClassic.avif",
+    img: "images/PumaSuedeClassic.webp",
     price: 120,
     alt: "Black Puma Suede Classic sneaker",
   },
   {
     name: "Asics Gel-Kayano 27",
     brand: "Asics",
-    img: "images/AsicsGelKayano27.avif",
+    img: "images/AsicsGelKayano.webp",
     price: 130,
     alt: "Black Asics Gel-Kayano 27 sneaker",
   },
@@ -124,12 +124,14 @@ const shoes = [
     price: 120,
   },
   {
-    name: "",
-    brand: "Nike",
+    name: "Handball Spezial",
+    brand: "Adidas",
+    img: "images/HandballSpezial.jpg",
     price: 120,
+    alt: "Adidas Handball Spezial sneaker",
   },
   {
-    name: "Air Max 90",
+    name: "Dunk High",
     brand: "Nike",
     price: 120,
   },
@@ -157,8 +159,15 @@ function getBtn() {
   const btnArr = Array.from(buttons);
   btnArr.forEach((btn) =>
     btn.addEventListener("click", function (event) {
-      console.log(event.target.getAttribute("data-id"));
+      console.log(
+        event.target.closest(".display-card").getAttribute("data-id")
+      );
+      console.log(event.target.textContent);
     })
   );
 }
 getBtn();
+//make array
+//find item in array, .find("name")
+//push item to cart
+//show cart
