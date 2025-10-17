@@ -131,9 +131,11 @@ const shoes = [
     alt: "Adidas Handball Spezial sneaker",
   },
   {
-    name: "Dunk High",
+    name: "Men's Win Flo 10",
     brand: "Nike",
-    price: 120,
+    img: "images/WinFlo10.avif",
+    price: 100,
+    alt: "Nike Win Flo 10 sneaker",
   },
 ];
 
@@ -159,14 +161,16 @@ function getBtn() {
   const btnArr = Array.from(buttons);
   btnArr.forEach((btn) =>
     btn.addEventListener("click", function (event) {
-      console.log(
-        event.target.closest(".display-card").getAttribute("data-id")
-      );
-      console.log(event.target.textContent);
+      console.log(event.target.closest(".display-card").getAttribute("data-id"));
+      event.target.textContent;
     })
   );
 }
 getBtn();
+
+cart = [];
+function addCart(btn) {
+  btn
 //make array
 //find item in array, .find("name")
 //push item to cart
