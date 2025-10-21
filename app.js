@@ -100,21 +100,21 @@ const shoes = [
   {
     name: "Classic Watercolored Marbled Clog",
     brand: "Crocs",
-    img: "images/ClassicWatercoloredMarbledClog.avif",
+    img: "images/ClassicWatercoloredMarbledClog.webp",
     price: 100,
     alt: "Classic Watercolored Marbled Crocs",
   },
   {
     name: "Birkenstock Boston Soft Footbed Suede",
     brand: "Birkenstock",
-    img: "images/BirkenstockBoston.avif",
+    img: "images/BirkenstockBoston.jpg",
     price: 135,
     alt: "Birkenstock Boston Soft Footbed Suede Berks",
   },
   {
     name: "Men's Cloudtilt",
     brand: "On",
-    img: "images/OnCloudtilt.avif",
+    img: "images/OnCloudtilt.jpg",
     price: 90,
   },
   {
@@ -161,16 +161,15 @@ function getBtn() {
   const btnArr = Array.from(buttons);
   btnArr.forEach((btn) =>
     btn.addEventListener("click", function (event) {
-      console.log(event.target.closest(".display-card").getAttribute("data-id"));
+      console.log(
+        event.target.closest(".display-card").getAttribute("data-id")
+      );
       event.target.textContent;
     })
   );
 }
 getBtn();
 
-cart = [];
-function addCart(btn) {
-  btn
 //make array
 //find item in array, .find("name")
 //push item to cart
