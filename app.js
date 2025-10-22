@@ -124,16 +124,16 @@ const shoes = [
     price: 120,
   },
   {
-    name: "Handball Spezial",
+    name: "Handball Spezial Bordeau",
     brand: "Adidas",
-    img: "images/HandballSpezial.jpg",
+    img: "images/HandballSpezialBordeau.webp",
     price: 120,
     alt: "Adidas Handball Spezial sneaker",
   },
   {
     name: "Men's Win Flo 10",
     brand: "Nike",
-    img: "images/WinFlo10.avif",
+    img: "images/WinFlo10.webp",
     price: 100,
     alt: "Nike Win Flo 10 sneaker",
   },
@@ -149,27 +149,32 @@ function inject(item) {
       <h2 class="title">${item.name}</h2>
       <img src="${item.img}" alt="${item.alt}">
       <p class="price">${item.price}</p>
-      <button class="button" id ="${item.name}">Add to Cart</button>
+      <button class="button" id = "${item.name}" data-title="${item.name}" data-price="${item.price}">Buy Me</button>
     </div>`
   );
 }
 shoes.forEach((element) => {
   inject(element);
 });
+
+const cart = [];
 function getBtn() {
   const buttons = document.querySelectorAll(".button");
-  const btnArr = Array.from(buttons);
-  btnArr.forEach((btn) =>
+   buttons.forEach((btn) =>
     btn.addEventListener("click", function (event) {
-      console.log(
-        event.target.closest(".display-card").getAttribute("data-id")
-      );
-      event.target.textContent;
+      cart.push({
+        name: event.target.closest(".card").getAttribute("data-title"),
+        price: event.target.closest(".card").getAttribute("data-price"),
+      });
+      cart.find((item) => item.name === event.target.closest(".card").getAttribute("data-title"));
     })
   );
 }
 getBtn();
 
+function addCart() {
+  button.forEacg((animal) =>
+    
 //make array
 //find item in array, .find("name")
 //push item to cart
