@@ -14,7 +14,7 @@ html,
 }
 .title {
   text-align: center;
-  font-size: 25px;
+  font-size: 18px;
   color: white;
   margin-top: 20px;
 }
@@ -70,22 +70,24 @@ h1 {
 .button {
   display: block;
   margin: 0px auto;
+  align-self: center;
   outline: none;
   cursor: pointer;
   font-size: 14px;
-  padding: 0 12px;
+  padding: 8 14px;
   line-height: 20px;
   height: 30px;
   max-height: 30px;
   background: #566ae5;
   font-weight: 700;
   border: 0;
-  border-radius: 0;
+  border-radius: 6px;
   color: #ffffff;
   transition-timing-function: ease-in-out;
   transition-property: box-shadow;
   transition-duration: 150ms;
   direction: column;
+  transform: translateY(-20px);
 }
 button:hover {
   box-shadow: 0 2px 2px rgb(39 44 52 / 12%);

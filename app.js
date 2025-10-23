@@ -160,21 +160,25 @@ shoes.forEach((element) => {
 const cart = [];
 function getBtn() {
   const buttons = document.querySelectorAll(".button");
-   buttons.forEach((btn) =>
+  buttons.forEach((btn) =>
     btn.addEventListener("click", function (event) {
-      cart.push({
-        name: event.target.closest(".card").getAttribute("data-title"),
-        price: event.target.closest(".card").getAttribute("data-price"),
-      });
-      cart.find((item) => item.name === event.target.closest(".card").getAttribute("data-title"));
+      cart.push(event.target.closest(".button").getAttribute("data-title"));
+      event.target.textContent;
+      addCart(item);
     })
   );
 }
 getBtn();
 
-function addCart() {
-  button.forEacg((animal) =>
-    
+function addCart(item) {
+  let found = animalList.find((animal) => animal.name === item);
+  console.log(found);
+  let container = document.querySelector(".cart-items");
+  container.insertAdjacentHTML(
+    "afterbegin",
+    `<div class= "cart-item">${found}</div>`
+  );
+}
 //make array
 //find item in array, .find("name")
 //push item to cart
