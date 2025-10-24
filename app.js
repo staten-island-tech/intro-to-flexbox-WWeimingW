@@ -164,6 +164,7 @@ function getBtn() {
     btn.addEventListener("click", function (event) {
       cart.push(event.target.closest(".button").getAttribute("data-title"));
       event.target.textContent;
+      item = event.target.closest(".button").getAttribute("data-title");
       addCart(item);
     })
   );
@@ -171,13 +172,16 @@ function getBtn() {
 getBtn();
 
 function addCart(item) {
-  let found = animalList.find((animal) => animal.name === item);
+  let found = shoes.find((shoe) => shoe.name === item);
   console.log(found);
   let container = document.querySelector(".cart-items");
   container.insertAdjacentHTML(
     "afterbegin",
-    `<div class= "cart-item">${found}</div>`
-  );
+    `<div class="cart-item">
+      <h4 class="cart-item-title">${found.name}</h4>
+      <p class="cart-item-price">${found.price}</p>
+    </div>`
+  );+
 }
 //make array
 //find item in array, .find("name")
