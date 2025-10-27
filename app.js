@@ -166,23 +166,35 @@ function getBtn() {
       event.target.textContent;
       item = event.target.closest(".button").getAttribute("data-title");
       addCart(item);
+      removeItem(item);
     })
   );
 }
 getBtn();
 
 function addCart(item) {
-  let found = shoes.find((shoe) => shoe.name === item);
+  const found = shoes.find((shoe) => shoe.name === item);
   console.log(found);
-  let container = document.querySelector(".cart-items");
+  const container = document.querySelector(".cart-items");
   container.insertAdjacentHTML(
     "afterbegin",
     `<div class="cart-item">
-      <h4 class="cart-item-title">${found.name}</h4>
-      <p class="cart-item-price">${found.price}</p>
-    </div>`
-  );+
+    <h4>${found.name}</h4>
+    <p>${found.price}</p>
+    </div>
+    <button class="remove">Remove Item</button>`
+  );
 }
+
+function removeItem() {
+  const removeButtons = document.querySelectorAll(".remove");
+  removeButtons.forEach((btn) =>
+    btn.addEventListener("click", function (event) {
+      event.target.closest(".cart-item").remove();
+    })
+  );
+}
+
 //make array
 //find item in array, .find("name")
 //push item to cart
