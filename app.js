@@ -199,3 +199,14 @@ function removeItem() {
 //find item in array, .find("name")
 //push item to cart
 //show cart
+
+function filterByBrand(brand) {
+  let category = shoes.filter((shoe) => shoe.brand === brand);
+  const container = document.querySelector(".brand");
+  container.insertAdjacentHTML("afterbegin", `<div class="brand">Nike</div>`);
+}
+
+shoes.forEach((element) => {
+  inject(element);
+});
+//How to add cards
