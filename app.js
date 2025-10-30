@@ -138,7 +138,15 @@ const shoes = [
     alt: "Nike Win Flo 10 sneaker",
   },
 ];
-
+let total = 0;
+function filterByBrand(item) {
+  let category = shoes.filter((shoe) => shoe.brand === brand);
+  const container = document.querySelector(".brand");
+  container.insertAdjacentHTML(
+    "afterbegin",
+    `<div class="brand">Nike</div>``<div class="brand">Adidas</div>``<div class="brand">Converse</div>``<div class="brand">New Balance</div>``<div class="brand">Vans</div>``<div class="brand">Puma</div>``<div class="brand">Asics</div>``<div class="brand">Crocs</div>``<div class="brand">Birkenstock</div>``<div class="brand">On</div>`
+  );
+}
 //create inject function
 function inject(item) {
   //query the html where we inject the card
@@ -162,9 +170,11 @@ function getBtn() {
   const buttons = document.querySelectorAll(".button");
   buttons.forEach((btn) =>
     btn.addEventListener("click", function (event) {
-      cart.push(event.target.closest(".button").getAttribute("data-title"));
-      event.target.textContent;
+      price = event.target.closest(".button").getAttribute("data-price");
       item = event.target.closest(".button").getAttribute("data-title");
+      add = Number(price);
+      total += add;
+      console.log(total);
       addCart(item);
       removeItem(item);
     })
@@ -200,13 +210,13 @@ function removeItem() {
 //push item to cart
 //show cart
 
-function filterByBrand(brand) {
-  let category = shoes.filter((shoe) => shoe.brand === brand);
-  const container = document.querySelector(".brand");
-  container.insertAdjacentHTML("afterbegin", `<div class="brand">Nike</div>`);
+function filterCart(item) {
+  const buttons = document.querySelectorAll(".button");
+  const container = shoes.find((shoe) => shoe.name === item);
+  buttons.forEach((btn) =>
+    btn.addEventListener("click", function () {
+      addCart(container);
+    })
+  );
 }
-
-shoes.forEach((element) => {
-  inject(element);
-});
 //How to add cards
