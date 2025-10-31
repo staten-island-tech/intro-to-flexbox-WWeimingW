@@ -112,5 +112,11 @@ button:hover {
   background-color: white;
   font-size: 15px;
 }
-.remove
-
+.functionbybrand {
+  text-align: center;
+  width: auto;
+  margin: auto;
+  border-radius: 15px;
+  background-color: white;
+  font-size: 15px;
+}

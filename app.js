@@ -216,6 +216,7 @@ function filterCart(item) {
   buttons.forEach((btn) =>
     btn.addEventListener("click", function () {
       addCart(category);
+      filterCart(category);
     })
   );
 }
