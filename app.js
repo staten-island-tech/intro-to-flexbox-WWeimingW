@@ -212,10 +212,10 @@ function removeItem() {
 
 function filterCart(item) {
   const buttons = document.querySelectorAll(".button");
-  const container = shoes.find((shoe) => shoe.name === item);
+  const category = shoes.find((shoe) => shoe.name === item);
   buttons.forEach((btn) =>
     btn.addEventListener("click", function () {
-      addCart(container);
+      addCart(category);
     })
   );
 }
