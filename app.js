@@ -181,7 +181,7 @@ function getBtn() {
 }
 function addCart(item) {
   let found = shoes.find((shoe) => shoe.name === item);
-  const container = document.querySelector(".cart-items");
+  const container = document.querySelector(".cartd");
   container.insertAdjacentHTML(
     "afterbegin",
     `<div class="cart-item">
@@ -198,7 +198,7 @@ function updateTotal() {
 
   if (!totalDisplay) {
     document
-      .querySelector("cart-items")
+      .querySelector(".cartd")
       .insertAdjacentHTML(
       "beforeend",
       `<h3 class = "total">Total:${total}</h3>`
@@ -206,15 +206,6 @@ function updateTotal() {
   } else {
     totalDisplay.textContent = `Total: ${total}`;
   }
-}
-
-function removeItem() {
-  const removeButtons = document.querySelectorAll(".remove");
-  removeButtons.forEach((btn) =>
-    btn.addEventListener("click", function (event) {
-      event.target.closest(".cart-item").remove();
-    })
-  );
 }
 function filterByBrand(category) {
   const container = document.querySelector(".container");
