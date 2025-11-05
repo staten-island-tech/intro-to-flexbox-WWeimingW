@@ -153,29 +153,27 @@ function inject(item) {
     </div>`
   );
 }
-shoes.forEach((element) => {
-  inject(element);
-})
-shoes.forEach((element) => {
-  inject(element);
-});
+// render each shoe once and wire up controls
+shoes.forEach((element) => inject(element));
+getBtn();
 
 function getBtn() {
   const buttons = document.querySelectorAll(".button");
   buttons.forEach((btn) =>
     btn.addEventListener("click", function (event) {
-      price = event.target.closest(".button").getAttribute("data-price");
-      item = event.target.closest(".button").getAttribute("data-title");
-      add = Number(price);
-      total += add;
-      console.log(total);
+      const button = event.currentTarget;
+      const price = Number(button.getAttribute("data-price")) || 0;
+      const item = button.getAttribute("data-title");
+      total += price;
+      console.log("total:", total);
       addCart(item);
-      /* removeItem(item); */
     })
   );
+  // wire up filter buttons
   document.querySelectorAll(".Filter").forEach((btn) =>
-    btn.addEventListener("click", function (event){
-      filterCart(category)
+    btn.addEventListener("click", function (event) {
+      const category = event.currentTarget.getAttribute("data-class");
+      filterByBrand(category);
     })
   );
 }
@@ -191,6 +189,7 @@ function addCart(item) {
     </div>`
   );
   updateTotal();
+  // attach remove handler for newly added remove button(s)
   setRemoveButtons();
 }
 function updateTotal() {
@@ -207,6 +206,7 @@ function updateTotal() {
     totalDisplay.textContent = `Total: ${total}`;
   }
 }
+
 function filterByBrand(category) {
   const container = document.querySelector(".container");
   container.innerHTML = ""; // this clears previous items
@@ -215,10 +215,37 @@ function filterByBrand(category) {
   if (category === "All") {
     filteredshoes = shoes;
   } else {
-    filteredshoes = shoes.filter((shoe) => shoe.class === (shoe))
+    // support price-range and brand filters
+    if (category === "under50") {
+      filteredshoes = shoes.filter((shoe) => shoe.price < 50);
+    } else if (category === "50to100") {
+      filteredshoes = shoes.filter((shoe) => shoe.price >= 50 && shoe.price <= 100);
+    } else if (category === "100to150") {
+      filteredshoes = shoes.filter((shoe) => shoe.price > 100 && shoe.price <= 150);
+    } else if (category === "over150") {
+      filteredshoes = shoes.filter((shoe) => shoe.price > 150);
+    } else {
+      filteredshoes = shoes.filter((shoe) => shoe.brand === category);
+    }
   }
   filteredshoes.forEach((shoe) => inject(shoe));
   getBtn();
+}
+
+// attach remove button listeners to cart items (idempotent)
+function setRemoveButtons() {
+  document.querySelectorAll(".remove").forEach((btn) => {
+    if (btn.dataset.bound === "true") return;
+    btn.addEventListener("click", function (event) {
+      const button = event.currentTarget;
+      const price = Number(button.getAttribute("data-price")) || 0;
+      total -= price;
+      const cartItem = button.closest(".cart-item");
+      if (cartItem) cartItem.remove();
+      updateTotal();
+    });
+    btn.dataset.bound = "true";
+  });
 }
 //make array
 //find item in array, .find("name")
