@@ -1,19 +1,37 @@
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-    rel="stylesheet">
-</head>
-
-<body>
-  <h1>Shoe Store</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet">
+    />
+    <title>Shoe Store</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+  <h1 class="header">Cheap Amazing Shoes</h1>
+  <section class="filterContainer"> 
+    <div class="filterDiv"></div>
+      <button class= "Filter" data-class = "Nike"> Nike </button>
+      <button class= "Filter" data-class = "Adidas"> Adidas </button>
+      <button class= "Filter" data-class = "Converse"> Converse </button>
+      <button class= "Filter" data-class = "New Balance"> New Balance </button>
+      <button class= "Filter" data-class = "Vans"> Vans </button>
+      <button class= "Filter" data-class = "Puma"> Puma </button>
+      <button class= "Filter" data-class = "Asics"> Asics </button>
+    </div>
+    <div class="filterDiv"></div>
+      <button class= "Filter" data-class = "under50"> Under $50 </button>
+      <button class= "Filter" data-class = "50to100"> $50 to $100 </button>
+      <button class= "Filter" data-class = "100to150"> $100 to $150 </button>
+      <button class= "Filter" data-class = "over150"> Over $150 </button>
+    </div>
+  </section>
   <section class="container">
     <!-- <div class="card">
       <h2 class="title">Nike Air Force 1</h2>
@@ -88,10 +106,8 @@
       <button class="button">Add to Cart</button>
     </div> -->
 
-  </section>
-  <script class=".cart"></script>
-  <section class="cart-items"></section>
-  <script src="app.js"></script>
-</body>
-
+    </section>
+    <section class="cartd"></section>
+    <script src="app.js"></script>
+  </body>
 </html>

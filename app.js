@@ -139,14 +139,6 @@ const shoes = [
   },
 ];
 let total = 0;
-function filterByBrand(item) {
-  let category = shoes.filter((shoe) => shoe.brand === brand);
-  const container = document.querySelector(".brand");
-  container.insertAdjacentHTML(
-    "afterbegin",
-    `<div class="brand">Nike</div>``<div class="brand">Adidas</div>``<div class="brand">Converse</div>``<div class="brand">New Balance</div>``<div class="brand">Vans</div>``<div class="brand">Puma</div>``<div class="brand">Asics</div>``<div class="brand">Crocs</div>``<div class="brand">Birkenstock</div>``<div class="brand">On</div>`
-  );
-}
 //create inject function
 function inject(item) {
   //query the html where we inject the card
@@ -163,9 +155,11 @@ function inject(item) {
 }
 shoes.forEach((element) => {
   inject(element);
+})
+shoes.forEach((element) => {
+  inject(element);
 });
 
-const cart = [];
 function getBtn() {
   const buttons = document.querySelectorAll(".button");
   buttons.forEach((btn) =>
@@ -176,24 +170,42 @@ function getBtn() {
       total += add;
       console.log(total);
       addCart(item);
-      removeItem(item);
+      /* removeItem(item); */
+    })
+  );
+  document.querySelectorAll(".Filter").forEach((btn) =>
+    btn.addEventListener("click", function (event){
+      filterCart(category)
     })
   );
 }
-getBtn();
-
 function addCart(item) {
-  const found = shoes.find((shoe) => shoe.name === item);
-  console.log(found);
+  let found = shoes.find((shoe) => shoe.name === item);
   const container = document.querySelector(".cart-items");
   container.insertAdjacentHTML(
     "afterbegin",
     `<div class="cart-item">
-    <h4>${found.name}</h4>
-    <p>${found.price}</p>
-    </div>
-    <button class="remove">Remove Item</button>`
+    <h2 class="name">${found.name}</h2>
+    <p> Price:${found.price}</p>
+    <button class="remove" data-price="${found.price}" > Remove Item</button>
+    </div>`
   );
+  updateTotal();
+  setRemoveButtons();
+}
+function updateTotal() {
+  const totalDisplay = document.querySelector(".total");
+
+  if (!totalDisplay) {
+    document
+      .querySelector("cart-items")
+      .insertAdjacentHTML(
+      "beforeend",
+      `<h3 class = "total">Total:${total}</h3>`
+      );
+  } else {
+    totalDisplay.textContent = `Total: ${total}`;
+  }
 }
 
 function removeItem() {
@@ -204,20 +216,24 @@ function removeItem() {
     })
   );
 }
+function filterByBrand(category) {
+  const container = document.querySelector(".container");
+  container.innerHTML = ""; // this clears previous items
 
+  let filteredshoes;
+  if (category === "All") {
+    filteredshoes = shoes;
+  } else {
+    filteredshoes = shoes.filter((shoe) => shoe.class === (shoe))
+  }
+  filteredshoes.forEach((shoe) => inject(shoe));
+  getBtn();
+}
 //make array
 //find item in array, .find("name")
 //push item to cart
 //show cart
 
-function filterCart(item) {
-  const buttons = document.querySelectorAll(".button");
-  const category = shoes.find((shoe) => shoe.name === item);
-  buttons.forEach((btn) =>
-    btn.addEventListener("click", function () {
-      addCart(category);
-      filterCart(category);
-    })
-  );
-}
 //How to add cards
+
+
