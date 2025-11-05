@@ -21,16 +21,19 @@ html,
 .card {
   width: 22%;
   height: 500px;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   object-fit: cover;
   background-color: grey;
-  margin: 10px;
+  margin: 0;
   padding: 15px;
   transition: transform 0.3s ease-in-out;
 }
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 20px;
   flex-wrap: wrap;
   height: auto;
   width: 90vw;
@@ -87,29 +90,87 @@ h1 {
   transition-property: box-shadow;
   transition-duration: 150ms;
   direction: column;
-  transform: translateY(-20px);
+  transform: translateY(5px);
 }
 button:hover {
   box-shadow: 0 2px 2px rgb(39 44 52 / 12%);
 }
 .cartd {
-  width: 22%;
+  width: 24%;
+  min-width: 220px;
   height: auto;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   object-fit: cover;
-  padding: 15px;
+  padding: 18px;
   transition: transform 0.3s ease-in-out;
-  text-align: center;
-  margin: auto;
+  text-align: left;
+  margin: 12px;
   border-radius: 15px;
-  background-color: white;
+  background-color: #0f2324;
+  color: #ffffff;
   font-size: 15px;
 }
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 10px;
+  padding: 12px;
+  color: #ffffff;
+}
+
+.cart-item .name {
+  font-size: 16px;
+  margin: 0;
+}
+.cart-item p {
+  margin: 0;
+  color: #ffffff;
+}
+
+.cartd .remove {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  background: rgba(255,255,255,0.04);
+  transform: translateY(-2px);
+}
 .filterContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   width: auto;
-  margin: auto;
+  margin: 12px auto;
   border-radius: 15px;
-  background-color: white;
+  background-color: #0f2324;
+  color: #ffffff;
+  padding: 12px;
+  max-width: 90vw;
   font-size: 15px;
+}
+
+.Filter {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 150ms ease, transform 120ms ease;
+  background: rgba(255,255,255,0.04);
+  transform: translateY(-2px);
 }
