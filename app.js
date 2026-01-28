@@ -169,7 +169,6 @@ function getBtn() {
       addCart(item);
     })
   );
-  // wire up filter buttons
   document.querySelectorAll(".Filter").forEach((btn) =>
     btn.addEventListener("click", function (event) {
       const category = event.currentTarget.getAttribute("data-class");
@@ -199,8 +198,8 @@ function updateTotal() {
     document
       .querySelector(".cartd")
       .insertAdjacentHTML(
-      "beforeend",
-      `<h3 class = "total">Total:${total}</h3>`
+        "beforeend",
+        `<h3 class = "total">Total:${total}</h3>`
       );
   } else {
     totalDisplay.textContent = `Total: ${total}`;
@@ -219,9 +218,13 @@ function filterByBrand(category) {
     if (category === "under50") {
       filteredshoes = shoes.filter((shoe) => shoe.price < 50);
     } else if (category === "50to100") {
-      filteredshoes = shoes.filter((shoe) => shoe.price >= 50 && shoe.price <= 100);
+      filteredshoes = shoes.filter(
+        (shoe) => shoe.price >= 50 && shoe.price <= 100
+      );
     } else if (category === "100to150") {
-      filteredshoes = shoes.filter((shoe) => shoe.price > 100 && shoe.price <= 150);
+      filteredshoes = shoes.filter(
+        (shoe) => shoe.price > 100 && shoe.price <= 150
+      );
     } else if (category === "over150") {
       filteredshoes = shoes.filter((shoe) => shoe.price > 150);
     } else {
@@ -253,5 +256,3 @@ function setRemoveButtons() {
 //show cart
 
 //How to add cards
-
-
